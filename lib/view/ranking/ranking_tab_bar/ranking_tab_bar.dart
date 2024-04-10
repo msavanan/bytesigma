@@ -1,6 +1,10 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'package:bytesigma/bloc/ranking_bloc.dart';
+import 'package:bytesigma/bloc/ranking_event.dart';
 import 'package:bytesigma/view/ranking/ranking_tab_bar/category.dart';
 import 'package:bytesigma/view/ranking/ranking_tab_bar/table_header.dart';
-import 'package:flutter/material.dart';
 
 class RankingTabBar extends StatelessWidget implements PreferredSizeWidget {
   const RankingTabBar({super.key});
@@ -10,34 +14,35 @@ class RankingTabBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         TabBar(
-          //automaticIndicatorColorAdjustment: false,
           indicatorPadding: EdgeInsets.zero,
-          // indicator: BoxDecoration(),
           labelColor: Colors.white,
           unselectedLabelColor: Colors.white,
           indicatorSize: TabBarIndicatorSize.tab,
-
           indicatorColor: Colors.white,
-          // indicator: BoxDecoration(
-          //   border: Border(
-          //     bottom: BorderSide(
-          //       color: Colors.blue,
-          //       width: 2.0,
-          //     ),
-          //   ),
-          // ),
-
-          tabs: [
+          onTap: (int tab) {
+            switch (tab) {
+              case 0:
+                context.read<RankingBloc>().add(const OdiEvent());
+                break;
+              case 1:
+                context.read<RankingBloc>().add(const TestEvent());
+                break;
+              case 2:
+                context.read<RankingBloc>().add(const T20Event());
+                break;
+            }
+          },
+          tabs: const [
             Tab(text: 'ODI'),
             Tab(text: 'TEST'),
             Tab(text: 'T20'),
           ],
         ),
-        Category(),
-        TableHeader()
+        const Category(),
+        const TableHeader()
       ],
     );
   }
