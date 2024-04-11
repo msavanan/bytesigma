@@ -17,7 +17,7 @@ class CategoryChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 8.0),
+      padding: const EdgeInsets.only(left: 0.0),
       child: ActionChip(
         label: Text(name,
             style: TextStyle(color: isActive ? Colors.white : Colors.black)),
