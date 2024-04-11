@@ -10,7 +10,7 @@ class RankingTabBar extends StatelessWidget implements PreferredSizeWidget {
   const RankingTabBar({super.key});
 
   @override
-  Size get preferredSize => const Size(double.infinity, 200);
+  Size get preferredSize => const Size.fromHeight(170);
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +22,7 @@ class RankingTabBar extends StatelessWidget implements PreferredSizeWidget {
           unselectedLabelColor: Colors.white,
           indicatorSize: TabBarIndicatorSize.tab,
           indicatorColor: Colors.white,
+          indicatorWeight: 3,
           onTap: (int tab) {
             switch (tab) {
               case 0:

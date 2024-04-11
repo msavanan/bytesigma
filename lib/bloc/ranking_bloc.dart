@@ -35,89 +35,109 @@ class RankingBloc extends Bloc<RankingEvent, RankingState> {
   }
 
   _batsmanEvent(event, emit) {
-    print("_batsmanEvent -  ${state.selectedTab} ");
     switch (state.selectedTab) {
       case SelectedTab.odi:
         emit(BatsmanState(_result?.odiBatsman,
-            isPlayer: true, selectedTab: SelectedTab.odi));
+            isPlayer: true,
+            selectedTab: SelectedTab.odi,
+            active: Active.batsman));
         break;
       case SelectedTab.test:
         emit(BatsmanState(_result?.testBatsman,
-            isPlayer: true, selectedTab: SelectedTab.test));
+            isPlayer: true,
+            selectedTab: SelectedTab.test,
+            active: Active.batsman));
         break;
       case SelectedTab.t20:
         emit(BatsmanState(_result?.t20Batsman,
-            isPlayer: true, selectedTab: SelectedTab.t20));
+            isPlayer: true,
+            selectedTab: SelectedTab.t20,
+            active: Active.batsman));
         break;
     }
   }
 
   _bowlerEvent(event, emit) {
-    print("_bowlerEvent -  ${state.selectedTab} ");
     switch (state.selectedTab) {
       case SelectedTab.odi:
         emit(BowlerState(_result?.odiBowler,
-            isPlayer: true, selectedTab: SelectedTab.odi));
+            isPlayer: true,
+            selectedTab: SelectedTab.odi,
+            active: Active.bowler));
         break;
       case SelectedTab.test:
         emit(BowlerState(_result?.testBowler,
-            isPlayer: true, selectedTab: SelectedTab.test));
+            isPlayer: true,
+            selectedTab: SelectedTab.test,
+            active: Active.bowler));
         break;
       case SelectedTab.t20:
         emit(BowlerState(_result?.t20Bowler,
-            isPlayer: true, selectedTab: SelectedTab.t20));
+            isPlayer: true,
+            selectedTab: SelectedTab.t20,
+            active: Active.bowler));
         break;
     }
   }
 
   _allRoundersEvent(event, emit) {
-    print("_allRoundersEvent -  ${state.selectedTab} ");
     switch (state.selectedTab) {
       case SelectedTab.odi:
         emit(AllRoundersState(_result?.odiAllRounder,
-            isPlayer: true, selectedTab: SelectedTab.odi));
+            isPlayer: true,
+            selectedTab: SelectedTab.odi,
+            active: Active.allRounder));
         break;
       case SelectedTab.test:
         emit(AllRoundersState(_result?.testAllRounder,
-            isPlayer: true, selectedTab: SelectedTab.test));
+            isPlayer: true,
+            selectedTab: SelectedTab.test,
+            active: Active.allRounder));
         break;
       case SelectedTab.t20:
         emit(AllRoundersState(_result?.t20AllRounder,
-            isPlayer: true, selectedTab: SelectedTab.t20));
+            isPlayer: true,
+            selectedTab: SelectedTab.t20,
+            active: Active.allRounder));
         break;
     }
   }
 
   _teamsEvent(event, emit) {
-    print("_teamsEvent -  ${state.selectedTab} ");
     switch (state.selectedTab) {
       case SelectedTab.odi:
         emit(TeamsState(_result?.odiTeams,
-            isPlayer: false, selectedTab: SelectedTab.odi));
+            isPlayer: false,
+            selectedTab: SelectedTab.odi,
+            active: Active.teams));
         break;
       case SelectedTab.test:
         emit(TeamsState(_result?.testTeams,
-            isPlayer: false, selectedTab: SelectedTab.test));
+            isPlayer: false,
+            selectedTab: SelectedTab.test,
+            active: Active.teams));
         break;
       case SelectedTab.t20:
         emit(TeamsState(_result?.t20Teams,
-            isPlayer: false, selectedTab: SelectedTab.t20));
+            isPlayer: false,
+            selectedTab: SelectedTab.t20,
+            active: Active.teams));
         break;
     }
   }
 
   _odiEvent(event, emit) {
     emit(BatsmanState(_result?.odiBatsman,
-        isPlayer: true, selectedTab: SelectedTab.odi));
+        isPlayer: true, selectedTab: SelectedTab.odi, active: Active.batsman));
   }
 
   _testEvent(event, emit) {
     emit(BatsmanState(_result?.testBatsman,
-        isPlayer: true, selectedTab: SelectedTab.test));
+        isPlayer: true, selectedTab: SelectedTab.test, active: Active.batsman));
   }
 
   _t20Event(event, emit) {
     emit(BatsmanState(_result?.t20Batsman,
-        isPlayer: true, selectedTab: SelectedTab.t20));
+        isPlayer: true, selectedTab: SelectedTab.t20, active: Active.batsman));
   }
 }

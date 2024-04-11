@@ -42,7 +42,14 @@ class PlayerHeader extends StatelessWidget {
       child: const Row(
         children: [
           HeaderCell('RANK'),
-          HeaderCell('PLAYERS', flex: 3),
+          Expanded(
+            flex: 3,
+            child: Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: Text('PLAYERS',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+          ),
+          //HeaderCell('PLAYERS', flex: 3),
           HeaderCell('POINTS')
         ],
       ),
@@ -61,7 +68,14 @@ class TeamHeader extends StatelessWidget {
       child: const Row(
         children: [
           HeaderCell('RANK'),
-          HeaderCell('TEAM', flex: 2),
+          Expanded(
+            flex: 2,
+            child: Padding(
+                padding: EdgeInsets.only(left: 8),
+                child: Text('TEAM',
+                    style: TextStyle(fontWeight: FontWeight.bold))),
+          ),
+          //HeaderCell('TEAM', flex: 2),
           HeaderCell('RATING'),
           HeaderCell('POINTS')
         ],

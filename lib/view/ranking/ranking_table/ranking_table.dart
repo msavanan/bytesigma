@@ -24,22 +24,6 @@ class RankingTable extends StatelessWidget {
           teamList = state.teams!;
         }
 
-        // if (state.selectedTab == SelectedTab.odi) {
-        //   if (state is BatsmanState) {
-        //     playersList = state.odiBatsman!;
-        //   } else if (state is OdiBowlerState) {
-        //     playersList = state.odiBowlers!;
-        //   } else if (state is OdiAllRoundersState) {
-        //     playersList = state.odiAllRounder!;
-        //   } else if (state is OdiTeamsState) {
-        //     teamList = state.odiTeams!;
-        //   }
-        // } else if (state.selectedTab == SelectedTab.test) {
-        //   if (state is TestBatsmanState) {
-        //     playersList = state.testBatsman!;
-        //   }
-        // }
-
         final int itemCount = state.isPlayer
             ? (playersList?.length ?? 0)
             : (teamList?.length ?? 0);
@@ -104,7 +88,17 @@ class PlayerRow extends StatelessWidget {
       color: isShaded ? Colors.grey.shade200 : Colors.white,
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        children: [Cell(rank), Cell(player, flex: 3), Cell(points)],
+        children: [
+          Cell(rank),
+          Expanded(
+            flex: 3,
+            child: Padding(
+                padding: const EdgeInsets.only(left: 8),
+                child: Text(player, style: const TextStyle())),
+          ),
+          //Cell(player, flex: 3),
+          Cell(points)
+        ],
       ),
     );
   }
